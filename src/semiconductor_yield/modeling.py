@@ -6,9 +6,9 @@ from sklearn.base import BaseEstimator
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import recall_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import recall_score
 
 
 def select_train_columns(features: pd.DataFrame, max_missing: float = 0.60) -> list[str]:

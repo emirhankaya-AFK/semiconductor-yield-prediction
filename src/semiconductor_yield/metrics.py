@@ -24,7 +24,7 @@ def classification_metrics(
     prediction = probability >= threshold
     tn, fp, fn, tp = confusion_matrix(y, prediction, labels=[0, 1]).ravel()
     return {
-        "samples": int(len(y)),
+        "samples": len(y),
         "failures": int(y.sum()),
         "threshold": float(threshold),
         "pr_auc": float(average_precision_score(y, probability)),
@@ -60,4 +60,3 @@ def bootstrap_interval(
             continue
         values.append(float(scorer(y[indices], probability[indices])))
     return float(np.percentile(values, 2.5)), float(np.percentile(values, 97.5))
-
